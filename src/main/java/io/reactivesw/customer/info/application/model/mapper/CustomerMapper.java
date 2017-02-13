@@ -49,7 +49,6 @@ public class CustomerMapper {
       model.setDefaultShippingAddressId(entity.getDefaultShippingAddressId());
       model.setDefaultBillingAddressId(entity.getDefaultBillingAddressId());
       model.setIsEmailVerified(entity.getIsEmailVerified());
-      model.setExternalId(entity.getExternalId());
 
       model.setLocale(entity.getLocale());
     }

@@ -44,7 +44,7 @@ public class CustomerService {
    */
   public Customer getById(String id) {
     LOG.debug("enter: id:{}", id);
-    Customer entity = this.customerRepository.findOne(id);
+    Customer entity = customerRepository.findOne(id);
     if (entity == null) {
       LOG.warn("customer not exist: id:{}", id);
       throw new NotExistException("customer not exist. id:" + id);
@@ -65,7 +65,7 @@ public class CustomerService {
   public Customer updateCustomer(String id, Integer version, List<UpdateAction> actions) {
     LOG.debug("enter: id: {}, version: {}, actions: {}", id, version, actions);
 
-    Customer valueInDb = this.getById(id);
+    Customer valueInDb = getOrCreateCustomer(id);
     LOG.debug("data in db: {}", valueInDb);
     checkVersion(version, valueInDb.getVersion());
 
@@ -74,7 +74,24 @@ public class CustomerService {
     );
 
     LOG.debug("data updated: {}", valueInDb);
-    return this.customerRepository.save(valueInDb);
+    return customerRepository.save(valueInDb);
+  }
+
+  /**
+   * get an existing or create an new customer.
+   *
+   * @param id customer id.
+   * @return Customer
+   */
+  private Customer getOrCreateCustomer(String id) {
+    LOG.debug("enter: id:{}", id);
+    Customer customer = customerRepository.findOne(id);
+    if (customer == null) {
+      customer = new Customer();
+      customer.setId(id);
+      customer = customerRepository.save(customer);
+    }
+    return customer;
   }
 
   /**

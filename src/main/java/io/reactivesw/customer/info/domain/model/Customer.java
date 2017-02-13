@@ -134,12 +134,6 @@ public class Customer {
   private Boolean isEmailVerified;
 
   /**
-   * external id.
-   */
-  @Column(name = "external_id")
-  private String externalId;
-
-  /**
    * customer group id.
    */
   @Column(name = "customer_group_id")
