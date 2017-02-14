@@ -2,8 +2,8 @@ package io.reactivesw.customer.info.application.model.mapper;
 
 import io.reactivesw.customer.info.application.model.action.SetCustomerPaymentId;
 import io.reactivesw.customer.info.domain.model.Customer;
-import io.reactivesw.customer.info.infrastructure.util.Updater;
 import io.reactivesw.customer.info.infrastructure.util.UpdateAction;
+import io.reactivesw.customer.info.infrastructure.util.Updater;
 
 /**
  * Created by umasuo on 16/12/8.
