@@ -1,4 +1,4 @@
-package io.reactivesw.customer.info.infrastructure.util;
+package io.reactivesw.customer.info.infrastructure.update;
 
 
 import lombok.Data;

@@ -2,8 +2,8 @@ package io.reactivesw.customer.info.domain.service;
 
 import io.reactivesw.customer.info.domain.model.Customer;
 import io.reactivesw.customer.info.infrastructure.repository.CustomerRepository;
-import io.reactivesw.customer.info.infrastructure.util.Updater;
-import io.reactivesw.customer.info.infrastructure.util.UpdateAction;
+import io.reactivesw.customer.info.infrastructure.update.UpdaterService;
+import io.reactivesw.customer.info.infrastructure.update.UpdateAction;
 import io.reactivesw.exception.ConflictException;
 import io.reactivesw.exception.NotExistException;
 import org.slf4j.Logger;
@@ -34,7 +34,7 @@ public class CustomerService {
    * update service.
    */
   @Autowired
-  private transient Updater updateService;
+  private transient UpdaterService updateService;
 
   /**
    * get customer by id.

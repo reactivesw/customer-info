@@ -5,7 +5,7 @@ import io.reactivesw.customer.info.application.model.mapper.CustomerMapper;
 import io.reactivesw.customer.info.domain.model.Customer;
 import io.reactivesw.customer.info.domain.service.CustomerService;
 import io.reactivesw.customer.info.infrastructure.Router;
-import io.reactivesw.customer.info.infrastructure.util.UpdateRequest;
+import io.reactivesw.customer.info.infrastructure.update.UpdateRequest;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

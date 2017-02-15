@@ -1,6 +1,6 @@
 package io.reactivesw.customer.info.application.model.action;
 
-import io.reactivesw.customer.info.infrastructure.util.UpdateAction;
+import io.reactivesw.customer.info.infrastructure.update.UpdateAction;
 import lombok.Getter;
 import lombok.Setter;
 

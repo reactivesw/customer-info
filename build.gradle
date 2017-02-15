@@ -44,6 +44,9 @@ dependencies {
 
     //spring data jpa
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    //postgresql driver
+    compile('org.postgresql:postgresql:9.4.1212')
+
     //h2
     compile('com.h2database:h2:1.4.193')
 
