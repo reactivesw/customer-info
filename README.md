@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/reactivesw/customer-info.svg?branch=master)](https://travis-ci.org/reactivesw/customer-info)
 # 1, Name
 customer-info service
 
