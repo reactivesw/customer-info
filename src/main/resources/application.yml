@@ -1,7 +1,15 @@
 server:
   port: 8084
 
-logging:
-  level:
-    com.netflix.discovery: 'OFF'
-    org.springframework.cloud: 'DEBUG'
+
+spring:
+  datasource:
+    url: jdbc:postgresql://104.155.176.8:5432/customer_info
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: io.reactivesw.database.dialect.JSONBPostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update

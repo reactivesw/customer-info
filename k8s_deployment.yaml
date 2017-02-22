@@ -14,9 +14,7 @@ spec:
         image: reactivesw/customer-info:0.0.1
         imagePullPolicy: Always
         ports:
-        - containerPort: 8083
+        - containerPort: 8084
         env:
         - name: spring_datasource_url
-          value: jdbc:postgresql://pg-data/reactivesw
-        - name: spring_cloud_config_uri
-          value: http://146.148.106.78:8888
+          value: jdbc:postgresql://104.155.176.8:5432/customer_info
