@@ -82,4 +82,4 @@ dependencies {
 }
 
 apply from: 'test_coverage.gradle'
-mainClassName = 'io.reactivesw.authentication.Application'
+mainClassName = 'io.reactivesw.customer.info.Application'
