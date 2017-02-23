@@ -13,4 +13,9 @@ public class TestController {
   public String testName() {
     return "customerInfo: " + System.currentTimeMillis();
   }
+
+  @GetMapping("/")
+  public String index() {
+    return "customerInfo index: " + System.currentTimeMillis();
+  }
 }
