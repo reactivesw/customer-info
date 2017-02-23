@@ -45,7 +45,7 @@ public class CustomerController {
    * @param id String
    * @return CustomerEntity
    */
-  @GetMapping(Router.CUSTOMER_ID)
+  @GetMapping(Router.CUSTOMER_WITH_ID)
   public CustomerView getById(@PathVariable String id) {
     LOG.debug("enter: id:{}", id);
 
