@@ -9,8 +9,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestController {
 
+  @GetMapping("/test/abc")
+  public String testSub() {
+    return "customerInfo test sub: " + System.currentTimeMillis();
+  }
+
   @GetMapping("/test")
-  public String testName() {
+  public String testRoot() {
     return "customerInfo: " + System.currentTimeMillis();
   }
 
