@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by umasuo on 17/2/22.
  */
 @RestController
-public class TestController {
+public class IndexController {
 
   @GetMapping("/test/abc")
   public String testSub() {
@@ -21,6 +21,6 @@ public class TestController {
 
   @GetMapping("/")
   public String index() {
-    return "customerInfo index: " + System.currentTimeMillis();
+    return "Customer-info service, system time: " + System.currentTimeMillis();
   }
 }
