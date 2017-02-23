@@ -7,7 +7,7 @@ spec:
   template:
     metadata:
       labels:
-        app: customer-info
+        name: customer-info
     spec:
       containers:
       - name: customer-info
