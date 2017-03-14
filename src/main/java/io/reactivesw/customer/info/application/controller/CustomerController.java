@@ -6,7 +6,7 @@ import io.reactivesw.customer.info.domain.model.Customer;
 import io.reactivesw.customer.info.domain.service.CustomerService;
 import io.reactivesw.customer.info.infrastructure.Router;
 import io.reactivesw.customer.info.infrastructure.update.UpdateRequest;
-import io.swagger.annotations.ApiOperation;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,7 +62,6 @@ public class CustomerController {
    * @param updateRequest update request
    * @return updated Customer
    */
-  @ApiOperation("update customer")
   @PostMapping(Router.CUSTOMER_WITH_ID)
   public Customer updateCustomer(@PathVariable String id,
                                  @RequestBody UpdateRequest updateRequest) {
@@ -76,6 +75,4 @@ public class CustomerController {
     LOG.info(EXIT_LOG_INFO, customer);
     return null;
   }
-
-
 }

@@ -8,7 +8,7 @@ public final class Router {
   /**
    * The ROOTER.
    */
-  public static final String CUSTOMER_ROOT = "/customers";
+  public static final String CUSTOMER_ROOT = "/";
 
   /**
    * customer id.
@@ -18,12 +18,12 @@ public final class Router {
   /**
    * customer root with id.
    */
-  public static final String CUSTOMER_WITH_ID = CUSTOMER_ROOT + "/{" + CUSTOMER_ID + "}";
+  public static final String CUSTOMER_WITH_ID = CUSTOMER_ROOT + "{" + CUSTOMER_ID + "}";
 
   /**
    * customer address.
    */
-  public static final String ADDRESS_ROOT = CUSTOMER_ROOT + "/addresses";
+  public static final String ADDRESS_ROOT = CUSTOMER_ROOT + "addresses";
 
   /**
    * address id.
@@ -51,6 +51,11 @@ public final class Router {
   public static final String PAYMENT_ROOT_WITH_ID = PAYMENT_ROOT + "/{" + PAYMENT_ID + "}";
 
   /**
+   * The constant CUSTOMER_HEALTH_CHECK.
+   */
+  public static final String CUSTOMER_HEALTH_CHECK = CUSTOMER_ROOT + "health";
+
+  /**
    * private router.
    */
   private Router() {
@@ -60,7 +65,7 @@ public final class Router {
    * get path with customer id.
    *
    * @param customerId customer id
-   * @return String
+   * @return String customer with id
    */
   public static String getCustomerWithId(String customerId) {
     return CUSTOMER_ROOT + "/" + customerId;
@@ -70,7 +75,7 @@ public final class Router {
    * url builder: get address with id.
    *
    * @param addressId String
-   * @return String
+   * @return String address with id
    */
   public static String getAddressWithId(String addressId) {
     return ADDRESS_ROOT + "/" + addressId;
@@ -80,7 +85,7 @@ public final class Router {
    * path builder: get customer with email.
    *
    * @param email String
-   * @return String
+   * @return String customer with email
    */
   public static String getCustomerWithEmail(String email) {
     return CUSTOMER_ROOT + "?email=" + email;
@@ -90,7 +95,7 @@ public final class Router {
    * path builder:get customer with google token
    *
    * @param gToken google token
-   * @return String
+   * @return String customer with google
    */
   public static String getCustomerWithGoogle(String gToken) {
     return CUSTOMER_ROOT + "?gToken=" + gToken;
