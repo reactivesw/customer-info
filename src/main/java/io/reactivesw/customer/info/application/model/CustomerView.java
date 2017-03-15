@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.time.ZonedDateTime;
 import java.util.List;
 
@@ -11,7 +12,7 @@ import java.util.List;
  * Created by umasuo on 17/2/13.
  */
 @Data
-public class CustomerView {
+public class CustomerView implements Serializable {
 
   /**
    * customer id, use uuid.
@@ -101,8 +102,5 @@ public class CustomerView {
 
   @JsonProperty
   private String locale;
-
-  @JsonProperty
-  private String paymentId;
 
 }

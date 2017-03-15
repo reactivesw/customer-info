@@ -47,11 +47,11 @@ public class CustomerController {
    */
   @GetMapping(Router.CUSTOMER_WITH_ID)
   public CustomerView getById(@PathVariable String id) {
-    LOG.debug("enter: id:{}", id);
+    LOG.debug("Enter: id:{}", id);
 
     Customer customer = customerService.getById(id);
 
-    LOG.debug("exit: id:{}, customer:{}", id, customer);
+    LOG.debug("Exit: customer:{}", id, customer);
     return CustomerMapper.entityToModel(customer);
   }
 
@@ -65,7 +65,7 @@ public class CustomerController {
   @PostMapping(Router.CUSTOMER_WITH_ID)
   public Customer updateCustomer(@PathVariable String id,
                                  @RequestBody UpdateRequest updateRequest) {
-    LOG.info("enter: id: {}, UpdateRequest: {}", id, updateRequest);
+    LOG.info("Enter: id: {}, UpdateRequest: {}", id, updateRequest);
 
     Customer entity = customerService.updateCustomer(id, updateRequest.getVersion(),
         updateRequest.getActions());

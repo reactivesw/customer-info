@@ -2,8 +2,8 @@ package io.reactivesw.customer.info.domain.service;
 
 import io.reactivesw.customer.info.domain.model.Customer;
 import io.reactivesw.customer.info.infrastructure.repository.CustomerRepository;
-import io.reactivesw.customer.info.infrastructure.update.UpdaterService;
 import io.reactivesw.customer.info.infrastructure.update.UpdateAction;
+import io.reactivesw.customer.info.infrastructure.update.UpdaterService;
 import io.reactivesw.exception.ConflictException;
 import io.reactivesw.exception.NotExistException;
 import org.slf4j.Logger;
@@ -43,13 +43,13 @@ public class CustomerService {
    * @return CustomerEntity
    */
   public Customer getById(String id) {
-    LOG.debug("enter: id:{}", id);
+    LOG.debug("Enter: id:{}", id);
     Customer entity = customerRepository.findOne(id);
     if (entity == null) {
       LOG.warn("customer not exist: id:{}", id);
       throw new NotExistException("customer not exist. id:" + id);
     }
-    LOG.debug("exit: id:{}, customer:{}", id, entity);
+    LOG.debug("Exit: id:{}, customer:{}", id, entity);
     return entity;
   }
 
@@ -63,17 +63,17 @@ public class CustomerService {
    * @return Customer entity
    */
   public Customer updateCustomer(String id, Integer version, List<UpdateAction> actions) {
-    LOG.debug("enter: id: {}, version: {}, actions: {}", id, version, actions);
+    LOG.debug("Enter: id: {}, version: {}, actions: {}", id, version, actions);
 
     Customer valueInDb = getOrCreateCustomer(id);
     LOG.debug("data in db: {}", valueInDb);
     checkVersion(version, valueInDb.getVersion());
 
-    actions.parallelStream().forEach(
+    actions.stream().forEach(
         action -> updateService.handle(valueInDb, action)
     );
 
-    LOG.debug("data updated: {}", valueInDb);
+    LOG.debug("Exit: data updated: {}", valueInDb);
     return customerRepository.save(valueInDb);
   }
 
@@ -84,7 +84,8 @@ public class CustomerService {
    * @return Customer
    */
   private Customer getOrCreateCustomer(String id) {
-    LOG.debug("enter: id:{}", id);
+    LOG.debug("Enter: id:{}", id);
+
     Customer customer = customerRepository.findOne(id);
     if (customer == null) {
       customer = new Customer();

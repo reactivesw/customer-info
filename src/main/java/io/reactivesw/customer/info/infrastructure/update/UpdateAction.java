@@ -2,7 +2,6 @@ package io.reactivesw.customer.info.infrastructure.update;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import io.reactivesw.customer.info.application.model.action.SetCustomerPaymentId;
 
 /**
  * configurations for common update actions that will be used in more thant one service
@@ -12,7 +11,7 @@ import io.reactivesw.customer.info.application.model.action.SetCustomerPaymentId
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property =
     "action")
 @JsonSubTypes( {
-    @JsonSubTypes.Type(value = SetCustomerPaymentId.class, name = "setCustomerPaymentId"),
+//    @JsonSubTypes.Type(value = SetCustomerPaymentId.class, name = "setCustomerPaymentId"),
 })
 public interface UpdateAction {
   String getActionName();

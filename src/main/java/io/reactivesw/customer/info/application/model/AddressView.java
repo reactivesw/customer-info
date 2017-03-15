@@ -3,13 +3,15 @@ package io.reactivesw.customer.info.application.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
+import java.io.Serializable;
+
 import javax.persistence.Id;
 
 /**
  * Created by umasuo on 17/2/13.
  */
 @Data
-public class AddressView {
+public class AddressView implements Serializable{
 
   @JsonProperty
   @Id

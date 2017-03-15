@@ -1,17 +1,16 @@
 package io.reactivesw.customer.info.application.controller;
 
-import static io.reactivesw.customer.info.infrastructure.Router.CUSTOMER_HEALTH_CHECK;
-
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import static io.reactivesw.customer.info.infrastructure.Router.CUSTOMER_HEALTH_CHECK;
 
 /**
  * Created by umasuo on 17/2/21.
  */
 @RestController
-public class IndexController {
+public class HealthController {
 
   /**
    * service name.

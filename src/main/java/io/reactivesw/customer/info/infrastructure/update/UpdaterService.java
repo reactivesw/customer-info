@@ -1,8 +1,6 @@
 package io.reactivesw.customer.info.infrastructure.update;
 
 import com.google.common.collect.ImmutableMap;
-import io.reactivesw.customer.info.application.model.action.SetCustomerPaymentId;
-import io.reactivesw.customer.info.application.model.mapper.update.SetCustomerPaymentIdMapper;
 import io.reactivesw.customer.info.domain.model.Customer;
 import io.reactivesw.model.Updater;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +22,7 @@ public class UpdaterService implements Updater<Customer, UpdateAction> {
    * ImmutableMap for discount code update mapper.
    */
   Map<Class<?>, Updater> updateMappers = ImmutableMap.of(
-      SetCustomerPaymentId.class, new SetCustomerPaymentIdMapper()
+//      SetCustomerPaymentId.class, new SetCustomerPaymentIdMapper()
   );
 
   /**
