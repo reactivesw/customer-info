@@ -29,8 +29,8 @@ public class UpdaterService implements Updater<Customer, UpdateAction> {
   Map<String, Updater> updateMappers = ImmutableMap.of(
       UpdateActionUtils.ADD_ADDRESS, new AddAddressMapper(),
       UpdateActionUtils.DELETE_ADDRESS, new DeleteAddressMapper(),
-      UpdateActionUtils.ADD_ADDRESS, new UpdateAddressMapper(),
-      UpdateActionUtils.ADD_ADDRESS, new UpdateCustomerInfoMapper()
+      UpdateActionUtils.UPDATE_ADDRESS, new UpdateAddressMapper(),
+      UpdateActionUtils.UPDATE_CUSTOMER_INFO, new UpdateCustomerInfoMapper()
   );
 
   /**

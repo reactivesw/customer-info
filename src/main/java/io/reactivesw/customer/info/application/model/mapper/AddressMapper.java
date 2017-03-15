@@ -74,7 +74,7 @@ public class AddressMapper {
    * @param model Address
    * @return AddressValue
    */
-  public Address modelToEntity(AddressView model) {
+  public static Address modelToEntity(AddressView model) {
     Address address = null;
     if (model != null) {
       address = new Address();

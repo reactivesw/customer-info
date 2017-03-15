@@ -4,7 +4,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/reactivesw
+    url: jdbc:postgresql://localhost:5432/customer_info
     username: postgres
     password: root
     driver-class-name: org.postgresql.Driver
