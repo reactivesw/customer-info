@@ -56,4 +56,32 @@ public class CustomerMapper {
     return model;
   }
 
+
+  /**
+   * copy value.
+   *
+   * @param value CustomerEntity
+   * @return Customer
+   */
+  public static void copyValue(Customer model, CustomerView value) {
+    if (value != null && model != null) {
+      model.setId(value.getId());
+      model.setPassword(value.getPassword());
+      model.setCustomerName(value.getCustomerName());
+      model.setVersion(value.getVersion());
+      model.setFirstName(value.getFirstName());
+      model.setLastName(value.getLastName());
+      model.setMiddleName(value.getMiddleName());
+      model.setTitle(value.getTitle());
+      model.setDateOfBirth(value.getDateOfBirth());
+      model.setCompanyName(value.getCompanyName());
+      model.setVatId(value.getVatId());
+      model.setDefaultShippingAddressId(value.getDefaultShippingAddressId());
+      model.setDefaultBillingAddressId(value.getDefaultBillingAddressId());
+      model.setIsEmailVerified(value.getIsEmailVerified());
+
+      model.setLocale(value.getLocale());
+    }
+  }
+
 }

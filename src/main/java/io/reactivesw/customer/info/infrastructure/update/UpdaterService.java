@@ -1,7 +1,12 @@
 package io.reactivesw.customer.info.infrastructure.update;
 
 import com.google.common.collect.ImmutableMap;
+import io.reactivesw.customer.info.application.model.mapper.update.AddAddressMapper;
+import io.reactivesw.customer.info.application.model.mapper.update.DeleteAddressMapper;
+import io.reactivesw.customer.info.application.model.mapper.update.UpdateAddressMapper;
+import io.reactivesw.customer.info.application.model.mapper.update.UpdateCustomerInfoMapper;
 import io.reactivesw.customer.info.domain.model.Customer;
+import io.reactivesw.customer.info.infrastructure.util.UpdateActionUtils;
 import io.reactivesw.model.Updater;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -21,8 +26,11 @@ public class UpdaterService implements Updater<Customer, UpdateAction> {
   /**
    * ImmutableMap for discount code update mapper.
    */
-  Map<Class<?>, Updater> updateMappers = ImmutableMap.of(
-//      SetCustomerPaymentId.class, new SetCustomerPaymentIdMapper()
+  Map<String, Updater> updateMappers = ImmutableMap.of(
+      UpdateActionUtils.ADD_ADDRESS, new AddAddressMapper(),
+      UpdateActionUtils.DELETE_ADDRESS, new DeleteAddressMapper(),
+      UpdateActionUtils.ADD_ADDRESS, new UpdateAddressMapper(),
+      UpdateActionUtils.ADD_ADDRESS, new UpdateCustomerInfoMapper()
   );
 
   /**
@@ -37,21 +45,22 @@ public class UpdaterService implements Updater<Customer, UpdateAction> {
    * @param entity E
    * @param action UpdateAction
    */
+  @Override
   public void handle(Customer entity, UpdateAction action) {
-    Updater updater = getUpdateService(action.getClass());
+    Updater updater = getUpdateService(action);
     updater.handle(entity, action);
   }
 
   /**
    * get mapper.
    *
-   * @param clazz UpdateAction class
+   * @param action UpdateAction class
    * @return ZoneUpdateMapper
    */
-  private Updater getUpdateService(Class<?> clazz) {
-    Updater updater = updateMappers.get(clazz);
+  private Updater getUpdateService(UpdateAction action) {
+    Updater updater = updateMappers.get(action.getActionName());
     if (updater == null) {
-      updater = (UpdaterService) context.getBean(clazz);
+      updater = (UpdaterService) context.getBean(action.getActionName());
     }
     return updater;
   }
