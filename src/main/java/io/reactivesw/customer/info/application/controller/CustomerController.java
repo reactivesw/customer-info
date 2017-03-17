@@ -34,12 +34,6 @@ public class CustomerController {
   private transient CustomerService customerService;
 
   /**
-   * EXIT LOGGER INFO.
-   */
-  private static final String EXIT_LOG_INFO = "exit: customer: {}";
-
-
-  /**
    * get customer by id.
    *
    * @param id String
@@ -51,7 +45,7 @@ public class CustomerController {
 
     Customer customer = customerService.getById(id);
 
-    LOG.debug("Exit: customer:{}", id, customer);
+    LOG.debug("Exit: customer: {}", id, customer);
     return CustomerMapper.entityToModel(customer);
   }
 
@@ -72,7 +66,7 @@ public class CustomerController {
 
     CustomerView customer = CustomerMapper.entityToModel(entity);
 
-    LOG.info(EXIT_LOG_INFO, customer);
+    LOG.info("Exit: customer: {}", customer);
     return null;
   }
 }
