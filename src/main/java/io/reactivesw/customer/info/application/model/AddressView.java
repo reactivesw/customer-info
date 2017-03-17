@@ -11,14 +11,14 @@ import javax.persistence.Id;
  * Created by umasuo on 17/2/13.
  */
 @Data
-public class AddressView implements Serializable{
+public class AddressView implements Serializable {
 
   @JsonProperty
   @Id
   private String id;
 
   @JsonProperty
-  private String title;
+  private String name;
 
   @JsonProperty
   private String salutation;
@@ -30,56 +30,18 @@ public class AddressView implements Serializable{
   private String lastName;
 
   @JsonProperty
-  private String streetName;
-
-  @JsonProperty
-  private String streetNumber;
-
-  @JsonProperty
-  private String additionalStreetInfo;
-
-  @JsonProperty
   private String postalCode;
-
-  @JsonProperty
-  private String city;
-
-  @JsonProperty
-  private String region;
-
-  @JsonProperty
-  private String state;
-
-  @JsonProperty
-  private String country;
-
-  @JsonProperty
-  private String company;
-
-  @JsonProperty
-  private String department;
-
-  @JsonProperty
-  private String building;
-
-  @JsonProperty
-  private String apartment;
 
   @JsonProperty
   private String phone;
 
   @JsonProperty
-  private String mobile;
-
-  @JsonProperty
   private String email;
 
   @JsonProperty
-  private String fax;
+  private String firstLine;
 
   @JsonProperty
-  private String additionalAddressInfo;
+  private String secondLine;
 
-  @JsonProperty
-  private String externalId;
 }

@@ -20,7 +20,7 @@ public class AddressMapper {
       address = new AddressView();
       address.setId(entity.getId());
 
-      address.setTitle(entity.getTitle());
+      address.setName(entity.getName());
 
       address.setSalutation(entity.getSalutation());
 
@@ -28,41 +28,15 @@ public class AddressMapper {
 
       address.setLastName(entity.getLastName());
 
-      address.setStreetName(entity.getStreetName());
-
-      address.setStreetNumber(entity.getStreetNumber());
-
-      address.setAdditionalStreetInfo(entity.getAdditionalStreetInfo());
-
       address.setPostalCode(entity.getPostalCode());
-
-      address.setCity(entity.getCity());
-
-      address.setRegion(entity.getRegion());
-
-      address.setState(entity.getState());
-
-      address.setCountry(entity.getCountry());
-
-      address.setCompany(entity.getCompany());
-
-      address.setDepartment(entity.getDepartment());
-
-      address.setBuilding(entity.getBuilding());
-
-      address.setApartment(entity.getApartment());
 
       address.setPhone(entity.getPhone());
 
-      address.setMobile(entity.getMobile());
-
       address.setEmail(entity.getEmail());
 
-      address.setFax(entity.getFax());
+      address.setFirstLine(entity.getFirstLine());
 
-      address.setAdditionalAddressInfo(entity.getAdditionalAddressInfo());
-
-      address.setExternalId(entity.getExternalId());
+      address.setSecondLine(entity.getSecondLine());
 
     }
     return address;
@@ -71,58 +45,32 @@ public class AddressMapper {
   /**
    * model to entity.
    *
-   * @param model Address
+   * @param view Address
    * @return AddressValue
    */
-  public static Address viewToModel(AddressView model) {
+  public static Address viewToModel(AddressView view) {
     Address address = null;
-    if (model != null) {
+    if (view != null) {
       address = new Address();
-      address.setId(model.getId());
+      address.setId(view.getId());
 
-      address.setTitle(model.getTitle());
+      address.setName(view.getName());
 
-      address.setSalutation(model.getSalutation());
+      address.setSalutation(view.getSalutation());
 
-      address.setFirstName(model.getFirstName());
+      address.setFirstName(view.getFirstName());
 
-      address.setLastName(model.getLastName());
+      address.setLastName(view.getLastName());
 
-      address.setStreetName(model.getStreetName());
+      address.setPostalCode(view.getPostalCode());
 
-      address.setStreetNumber(model.getStreetNumber());
+      address.setPhone(view.getPhone());
 
-      address.setAdditionalStreetInfo(model.getAdditionalStreetInfo());
+      address.setEmail(view.getEmail());
 
-      address.setPostalCode(model.getPostalCode());
+      address.setFirstLine(view.getFirstLine());
 
-      address.setCity(model.getCity());
-
-      address.setRegion(model.getRegion());
-
-      address.setState(model.getState());
-
-      address.setCountry(model.getCountry());
-
-      address.setCompany(model.getCompany());
-
-      address.setDepartment(model.getDepartment());
-
-      address.setBuilding(model.getBuilding());
-
-      address.setApartment(model.getApartment());
-
-      address.setPhone(model.getPhone());
-
-      address.setMobile(model.getMobile());
-
-      address.setEmail(model.getEmail());
-
-      address.setFax(model.getFax());
-
-      address.setAdditionalAddressInfo(model.getAdditionalAddressInfo());
-
-      address.setExternalId(model.getExternalId());
+      address.setSecondLine(view.getSecondLine());
 
     }
     return address;

@@ -46,15 +46,6 @@ public class CustomerView implements Serializable {
   @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", timezone = "UTC")
   private ZonedDateTime lastModifiedAt;
 
-  /**
-   * email.
-   */
-  @JsonProperty
-  private String email;
-
-  @JsonProperty
-  private String password;
-
   @JsonProperty
   private String firstName;
 
@@ -65,16 +56,7 @@ public class CustomerView implements Serializable {
   private String middleName;
 
   @JsonProperty
-  private String title;
-
-  @JsonProperty
   private ZonedDateTime dateOfBirth;
-
-  @JsonProperty
-  private String companyName;
-
-  @JsonProperty
-  private String vatId;
 
   /**
    * The addresses have unique IDs in the addresses list.
@@ -93,12 +75,6 @@ public class CustomerView implements Serializable {
    */
   @JsonProperty
   private String defaultBillingAddressId;
-
-  @JsonProperty
-  private Boolean isEmailVerified;
-
-  @JsonProperty
-  private String externalId;
 
   @JsonProperty
   private String locale;
