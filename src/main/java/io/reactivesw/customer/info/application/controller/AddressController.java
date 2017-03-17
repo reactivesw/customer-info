@@ -4,6 +4,7 @@ import io.reactivesw.customer.info.application.model.AddressView;
 import io.reactivesw.customer.info.application.model.mapper.AddressMapper;
 import io.reactivesw.customer.info.domain.model.Address;
 import io.reactivesw.customer.info.domain.service.AddressService;
+import io.reactivesw.customer.info.infrastructure.Router;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class AddressController {
   @Autowired
   public transient AddressService addressService;
 
-  @GetMapping()
+  @GetMapping(value = Router.ADDRESS_WITH_ID)
   public AddressView getById(@RequestParam @Valid @NotNull String id) {
     logger.info("Enter: id: {}", id);
 
@@ -42,4 +43,5 @@ public class AddressController {
     logger.info("Exit: addressView: {}", addressView);
     return addressView;
   }
+
 }
