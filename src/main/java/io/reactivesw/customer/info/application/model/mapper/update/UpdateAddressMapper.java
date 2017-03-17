@@ -16,7 +16,7 @@ public class UpdateAddressMapper implements Updater<Customer, UpdateAction> {
   @Override
   public void handle(Customer customer, UpdateAction updateAction) {
     AddressView addressView = (AddressView) updateAction;
-    Address address = AddressMapper.modelToEntity(addressView);
+    Address address = AddressMapper.viewToModel(addressView);
     if (!customer.getAddresses().contains(address)) {
       throw new NotExistException("Address not exist. address: " + address.toString());
     }

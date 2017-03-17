@@ -41,7 +41,7 @@ public class CustomerMapper {
       Set<Address> addressValueSet = entity.getAddresses();
       if (addressValueSet != null) {
         addressValueSet.parallelStream().forEach(
-            addressValue -> addressList.add(AddressMapper.entityToModel(addressValue))
+            addressValue -> addressList.add(AddressMapper.modelToView(addressValue))
         );
       }
       model.setAddresses(addressList);
