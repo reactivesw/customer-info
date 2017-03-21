@@ -3,6 +3,7 @@ apply plugin: 'pmd'
 /*************PMD(Project Manager Design)***************/
 tasks.withType(Pmd) {
     //exclude the package you do not want to check
+    exclude 'Application.java'
 //    exclude '**/util/**'
 }
 
