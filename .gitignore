@@ -79,5 +79,6 @@ hs_err_pid*
 
 # Ignored gradle
 */gradle
+/gradle
 gradlew*
 
