@@ -10,6 +10,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import java.time.ZonedDateTime;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
@@ -115,7 +116,7 @@ public class Customer {
   /**
    * The addresses have unique IDs in the addresses list.
    */
-  @OneToMany
+  @OneToMany(cascade= CascadeType.ALL)
   private Set<Address> addresses;
 
   /**

@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,10 +34,10 @@ public class AddressController {
   public transient AddressService addressService;
 
   @GetMapping(value = Router.ADDRESS_WITH_ID)
-  public AddressView getById(@RequestParam @Valid @NotNull String id) {
-    LOGGER.info("Enter: id: {}", id);
+  public AddressView getById(@PathVariable @Valid @NotNull String addressId) {
+    LOGGER.info("Enter: id: {}", addressId);
 
-    Address address = addressService.getById(id);
+    Address address = addressService.getById(addressId);
 
     AddressView addressView = AddressMapper.modelToView(address);
 

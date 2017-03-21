@@ -50,43 +50,19 @@ public class Address {
    * name of this address.
    */
   @Column
-  private String name;
-
-  /**
-   * salutation.
-   */
-  @Column
-  private String salutation;
-
-  /**
-   * first name.
-   */
-  @Column(name = "first_name")
-  private String firstName;
-
-  /**
-   * last name.
-   */
-  @Column(name = "last_name")
-  private String lastName;
+  private String fullName;
 
   /**
    * postal code.
    */
-  @Column(name = "postal_code")
-  private String postalCode;
+  @Column
+  private String zip;
 
   /**
    * phone.
    */
   @Column
   private String phone;
-
-  /**
-   * email.
-   */
-  @Column
-  private String email;
 
   /**
    * additional address info.
@@ -99,4 +75,13 @@ public class Address {
    */
   @Column
   private String secondLine;
+
+  @Column
+  private String country;
+
+  @Column
+  private String state;
+
+  @Column
+  protected String city;
 }

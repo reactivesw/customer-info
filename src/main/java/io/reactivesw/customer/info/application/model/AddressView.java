@@ -3,37 +3,31 @@ package io.reactivesw.customer.info.application.model;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.time.ZonedDateTime;
 
-/**
- * Created by umasuo on 17/2/13.
- */
 @Data
 public class AddressView implements Serializable {
 
-  /**
-   * uuid.
-   */
   private String id;
 
-  /**
-   * address name.
-   */
-  private String name;
+  private ZonedDateTime createdAt;
 
-  private String salutation;
+  private ZonedDateTime lastModifiedAt;
 
-  private String firstName;
+  private String fullName;
 
-  private String lastName;
-
-  private String postalCode;
+  private String zip;
 
   private String phone;
-
-  private String email;
 
   private String firstLine;
 
   private String secondLine;
+
+  private String country;
+
+  private String state;
+
+  protected String city;
 
 }
