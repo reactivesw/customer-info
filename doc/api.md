@@ -50,10 +50,8 @@ Update all info here
 
   ZonedDateTime dateOfBirth;
 
-  String defaultShippingAddressId;
+  String defaultAddressId;
 
-  String defaultBillingAddressId;
-  
   String locale;
 ```
 - Sample
@@ -135,11 +133,15 @@ Update all info here
 }
 ```
 
+---
+
 ### Get customer info by customer id
 #### Path: /{id}
 #### Payload: NONE
 #### Method: GET
 #### Return CustomerView
+
+---
 
 ### Get address by addressId
 #### Path: /addresses/{addressId}
