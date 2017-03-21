@@ -59,23 +59,27 @@ The customer will be auto created by the service.
 - AddressView
 ```Java
   
-  private String name;
+  private String id;
 
-  private String salutation;
+  private ZonedDateTime createdAt;
 
-  private String firstName;
+  private ZonedDateTime lastModifiedAt;
 
-  private String lastName;
+  private String fullName;
 
-  private String postalCode;
+  private String zip;
 
   private String phone;
-
-  private String email;
 
   private String firstLine;
 
   private String secondLine;
+
+  private String country;
+
+  private String state;
+
+  protected String city;
 ```
 - sample
 ```Json
@@ -88,7 +92,7 @@ The customer will be auto created by the service.
 		},
 		{
 			"action":"addAddress",
-			"name": "home"
+			"fullName": "home"
 		}
 		]
 }
@@ -98,3 +102,4 @@ The customer will be auto created by the service.
 #### Path: /addresses/{addressId}
 #### Payload: none
 #### Method: GET
+#### Return: AddressView
