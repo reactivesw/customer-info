@@ -3,7 +3,7 @@ apply plugin: 'pmd'
 /*************PMD(Project Manager Design)***************/
 tasks.withType(Pmd) {
     //exclude the package you do not want to check
-    exclude 'Application.java'
+    exclude '**/Application*'
 //    exclude '**/util/**'
 }
 
@@ -11,7 +11,7 @@ tasks.withType(Pmd) {
 pmd {
     toolVersion = '5.5.0'
 
-    ignoreFailures = true
+    ignoreFailures = false
 
     sourceSets = [sourceSets.main]
 

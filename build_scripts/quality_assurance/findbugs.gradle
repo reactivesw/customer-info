@@ -14,7 +14,7 @@ tasks.withType(FindBugs) {
 findbugs {
     toolVersion = "3.0.1"
 
-    ignoreFailures = true
+    ignoreFailures = false
     effort = "max"
     reportLevel = "medium"
 

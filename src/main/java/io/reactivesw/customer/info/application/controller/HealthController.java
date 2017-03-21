@@ -16,7 +16,7 @@ public class HealthController {
    * service name.
    */
   @Value("${spring.application.name}")
-  private String serviceName;
+  private transient String serviceName;
 
   /**
    * this api is used for health check.
