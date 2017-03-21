@@ -1,6 +1,7 @@
 package io.reactivesw.customer.info.domain.service;
 
 import io.reactivesw.customer.info.domain.model.Customer;
+import io.reactivesw.customer.info.infrastructure.repository.AddressRepository;
 import io.reactivesw.customer.info.infrastructure.repository.CustomerRepository;
 import io.reactivesw.customer.info.infrastructure.update.UpdateAction;
 import io.reactivesw.customer.info.infrastructure.update.UpdaterService;

@@ -20,23 +20,21 @@ public class AddressMapper {
       address = new AddressView();
       address.setId(entity.getId());
 
-      address.setName(entity.getName());
-
-      address.setSalutation(entity.getSalutation());
-
-      address.setFirstName(entity.getFirstName());
-
-      address.setLastName(entity.getLastName());
-
-      address.setPostalCode(entity.getPostalCode());
+      address.setFullName(entity.getFullName());
 
       address.setPhone(entity.getPhone());
 
-      address.setEmail(entity.getEmail());
+      address.setZip(entity.getZip());
 
       address.setFirstLine(entity.getFirstLine());
 
       address.setSecondLine(entity.getSecondLine());
+
+      address.setCountry(entity.getCountry());
+
+      address.setState(entity.getState());
+
+      address.setCity(entity.getCity());
 
     }
     return address;
@@ -54,23 +52,21 @@ public class AddressMapper {
       address = new Address();
       address.setId(view.getId());
 
-      address.setName(view.getName());
-
-      address.setSalutation(view.getSalutation());
-
-      address.setFirstName(view.getFirstName());
-
-      address.setLastName(view.getLastName());
-
-      address.setPostalCode(view.getPostalCode());
+      address.setFullName(view.getFullName());
 
       address.setPhone(view.getPhone());
 
-      address.setEmail(view.getEmail());
+      address.setZip(view.getZip());
 
       address.setFirstLine(view.getFirstLine());
 
       address.setSecondLine(view.getSecondLine());
+
+      address.setCountry(view.getCountry());
+
+      address.setState(view.getState());
+
+      address.setCity(view.getCity());
 
     }
     return address;
