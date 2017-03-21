@@ -1,6 +1,5 @@
 package io.reactivesw.customer.info.infrastructure.update;
 
-import com.google.common.collect.ImmutableMap;
 import io.reactivesw.customer.info.application.model.mapper.update.AddAddressMapper;
 import io.reactivesw.customer.info.application.model.mapper.update.DeleteAddressMapper;
 import io.reactivesw.customer.info.application.model.mapper.update.UpdateAddressMapper;
@@ -8,11 +7,11 @@ import io.reactivesw.customer.info.application.model.mapper.update.UpdateCustome
 import io.reactivesw.customer.info.domain.model.Customer;
 import io.reactivesw.customer.info.infrastructure.util.UpdateActionUtils;
 import io.reactivesw.model.Updater;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * we may got two kind of update: just use the data in action, or still use data from other service.
@@ -24,20 +23,28 @@ import java.util.Map;
 public class UpdaterService implements Updater<Customer, UpdateAction> {
 
   /**
-   * ImmutableMap for discount code update mapper.
-   */
-  Map<String, Updater> updateMappers = ImmutableMap.of(
-      UpdateActionUtils.ADD_ADDRESS, new AddAddressMapper(),
-      UpdateActionUtils.DELETE_ADDRESS, new DeleteAddressMapper(),
-      UpdateActionUtils.UPDATE_ADDRESS, new UpdateAddressMapper(),
-      UpdateActionUtils.UPDATE_CUSTOMER_INFO, new UpdateCustomerInfoMapper()
-  );
-
-  /**
    * ApplicationContext for get update services.
    */
-  @Autowired
   private transient ApplicationContext context;
+
+  /**
+   * ImmutableMap for discount code update mapper.
+   */
+  private transient Map<String, Updater> updateMappers = new ConcurrentHashMap();
+
+  /**
+   * constructor.
+   *
+   * @param context
+   */
+  public UpdaterService(ApplicationContext context) {
+    this.context = context;
+
+    updateMappers.put(UpdateActionUtils.ADD_ADDRESS, new AddAddressMapper());
+    updateMappers.put(UpdateActionUtils.DELETE_ADDRESS, new DeleteAddressMapper());
+    updateMappers.put(UpdateActionUtils.UPDATE_ADDRESS, new UpdateAddressMapper());
+    updateMappers.put(UpdateActionUtils.UPDATE_CUSTOMER_INFO, new UpdateCustomerInfoMapper());
+  }
 
   /**
    * put the value in action to entity.

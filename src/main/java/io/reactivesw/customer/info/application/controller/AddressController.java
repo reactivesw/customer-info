@@ -22,9 +22,9 @@ import javax.validation.constraints.NotNull;
 public class AddressController {
 
   /**
-   * logger.
+   * LOGGER.
    */
-  private final static Logger logger = LoggerFactory.getLogger(AddressController.class);
+  private final static Logger LOGGER = LoggerFactory.getLogger(AddressController.class);
 
   /**
    * address service.
@@ -34,13 +34,13 @@ public class AddressController {
 
   @GetMapping(value = Router.ADDRESS_WITH_ID)
   public AddressView getById(@RequestParam @Valid @NotNull String id) {
-    logger.info("Enter: id: {}", id);
+    LOGGER.info("Enter: id: {}", id);
 
     Address address = addressService.getById(id);
 
     AddressView addressView = AddressMapper.modelToView(address);
 
-    logger.info("Exit: addressView: {}", addressView);
+    LOGGER.info("Exit: addressView: {}", addressView);
     return addressView;
   }
 
