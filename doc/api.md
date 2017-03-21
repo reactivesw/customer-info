@@ -4,102 +4,145 @@ The customer will be auto created by the service.
 #### Path: /{id}
 #### Method: PUT
 #### Payload: UpdateRequest
+- Payload structure
 ```json
 {
-    "version":***,
+    "version": ...,
     "actions":[
         {
             "action":"action name",
-            ****Values****
+            ...payloads...
         },
         
     ]
 }
 ```
-#### Return: CustomerView
-##### Actions:
-###### updateCustomerInfo
-- CustomerView
-```java
-  
-  private String id;
-
-  /**
-   * The customer number can be used to create a more human-readable (in contrast to ID) identifier
-   * for the customer. It should be unique across a merchant. Once the field was set it cannot be
-   * changed anymore.
-   */
-  private String customerName;
-
-  private String firstName;
-
-  private String lastName;
-
-  private String middleName;
-
-  private ZonedDateTime dateOfBirth;
-
-  /**
-   * The addresses have unique IDs in the addresses list.
-   */
-  private List<AddressView> addresses;
-
-  /**
-   * The address ID in the addresses list.
-   */
-  private String defaultShippingAddressId;
-
-  /**
-   * The address ID in the addresses list.
-   */
-  private String defaultBillingAddressId;
-  
-  private String locale;
-```
-- AddressView
-```Java
-  
-  private String id;
-
-  private ZonedDateTime createdAt;
-
-  private ZonedDateTime lastModifiedAt;
-
-  private String fullName;
-
-  private String zip;
-
-  private String phone;
-
-  private String firstLine;
-
-  private String secondLine;
-
-  private String country;
-
-  private String state;
-
-  protected String city;
-```
-- sample
+- Sample
 ```Json
 {
 	"version":1,
 	"actions":[
 		{
 			"action":"updateCustomerInfo",
-			"id": "customer1"
+			"customerName": "Umasuo"
 		},
 		{
 			"action":"addAddress",
 			"fullName": "home"
 		}
-		]
+	]
+}
+```
+#### Return: CustomerView
+##### Actions:
+###### Action: updateCustomerInfo
+Update all info here
+- Payload
+```java
+  
+  String customerName;
+
+  String firstName;
+
+  String lastName;
+
+  String middleName;
+
+  ZonedDateTime dateOfBirth;
+
+  String defaultShippingAddressId;
+
+  String defaultBillingAddressId;
+  
+  String locale;
+```
+- Sample
+```Java
+{
+	"action":"updateCustomerInfo",
+	"customerName": "Umasuo",
+	"firstName": "wakaka"
 }
 ```
 
-### Get Address By Address Id
+###### Action: AddAddress
+- Payload
+```Java
+  
+  String fullName;
+
+  String zip;
+
+  String phone;
+
+  String firstLine;
+
+  String secondLine;
+
+  String country;
+
+  String state;
+
+  String city;
+```
+- Sample
+```Java
+{
+	"action":"addAddress",
+	"fullName": "Wakaka Umasuo",
+	"city": "NewYork"
+}
+```
+###### Action: UpdateAddress
+- Payload
+```
+  String id;
+
+  String fullName;
+
+  String zip;
+
+  String phone;
+
+  String firstLine;
+
+  String secondLine;
+
+  String country;
+
+  String state;
+
+  String city;
+```
+- Sample
+```Java
+{
+	"action":"updateAddress",
+	"fullName": "Woossa Umasuo",
+	"city": "NewYork"
+}
+```
+###### Action: DeleteAddress
+- Payload
+```
+  String id;
+```
+- Sample
+```Java
+{
+	"action":"updateAddress",
+	"id": "RGADV-GBFGHNSAWEA-GHNJDBSV"
+}
+```
+
+### Get customer info by customer id
+#### Path: /{id}
+#### Payload: NONE
+#### Method: GET
+#### Return CustomerView
+
+### Get address by addressId
 #### Path: /addresses/{addressId}
-#### Payload: none
+#### Payload: NONE
 #### Method: GET
 #### Return: AddressView
