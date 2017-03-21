@@ -42,8 +42,7 @@ public class CustomerMapper {
       }
       model.setAddresses(addressList);
 
-      model.setDefaultShippingAddressId(entity.getDefaultShippingAddressId());
-      model.setDefaultBillingAddressId(entity.getDefaultBillingAddressId());
+      model.setDefaultAddressId(entity.getDefaultAddressId());
 
       model.setLocale(entity.getLocale());
     }
@@ -67,8 +66,7 @@ public class CustomerMapper {
       model.setLastName(value.getLastName());
       model.setMiddleName(value.getMiddleName());
       model.setDateOfBirth(value.getDateOfBirth());
-      model.setDefaultShippingAddressId(value.getDefaultShippingAddressId());
-      model.setDefaultBillingAddressId(value.getDefaultBillingAddressId());
+      model.setDefaultAddressId(value.getDefaultAddressId());
 
       model.setLocale(value.getLocale());
     }

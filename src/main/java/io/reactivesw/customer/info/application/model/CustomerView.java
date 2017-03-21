@@ -68,13 +68,7 @@ public class CustomerView implements Serializable {
    * The address ID in the addresses list.
    */
   @JsonProperty
-  private String defaultShippingAddressId;
-
-  /**
-   * The address ID in the addresses list.
-   */
-  @JsonProperty
-  private String defaultBillingAddressId;
+  private String defaultAddressId;
 
   @JsonProperty
   private String locale;

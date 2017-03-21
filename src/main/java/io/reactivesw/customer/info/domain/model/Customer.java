@@ -2,7 +2,6 @@ package io.reactivesw.customer.info.domain.model;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -14,7 +13,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -116,20 +114,14 @@ public class Customer {
   /**
    * The addresses have unique IDs in the addresses list.
    */
-  @OneToMany(cascade= CascadeType.ALL)
+  @OneToMany(cascade = CascadeType.ALL)
   private Set<Address> addresses;
 
   /**
    * The address ID in the addresses list.
    */
-  @Column(name = "default_shipping_address_id")
-  private String defaultShippingAddressId;
-
-  /**
-   * The address ID in the addresses list.
-   */
-  @Column(name = "default_billing_address_id")
-  private String defaultBillingAddressId;
+  @Column(name = "default_address_id")
+  private String defaultAddressId;
 
   /**
    * is email verified.
