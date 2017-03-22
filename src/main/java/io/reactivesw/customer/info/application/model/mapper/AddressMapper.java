@@ -38,6 +38,8 @@ public class AddressMapper {
 
       address.setCreatedAt(entity.getCreatedAt());
 
+      address.setLastModifiedAt(entity.getLastModifiedAt());
+
     }
     return address;
   }

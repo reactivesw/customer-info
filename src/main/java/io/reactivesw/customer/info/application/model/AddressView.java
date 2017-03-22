@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.time.ZonedDateTime;
 
 @Data
-public class AddressView implements Serializable, Comparable<AddressView> {
+public class AddressView implements Serializable {
 
   private String id;
 
@@ -33,8 +33,4 @@ public class AddressView implements Serializable, Comparable<AddressView> {
 
   protected String city;
 
-  @Override
-  public int compareTo(AddressView compareAddress) {
-    return this.createdAt.compareTo(((AddressView) compareAddress).getCreatedAt());
-  }
 }

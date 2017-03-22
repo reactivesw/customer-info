@@ -9,8 +9,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by umasuo on 17/2/13.
@@ -21,7 +21,7 @@ public class AddressService {
   /**
    * logger.
    */
-  private final static Logger LOG = LoggerFactory.getLogger(AddressService.class);
+  private final static Logger LOGGER = LoggerFactory.getLogger(AddressService.class);
 
   /**
    * address repository.
@@ -42,14 +42,14 @@ public class AddressService {
    * @return AddressValue
    */
   public Address getById(String id) {
-    LOG.debug("enter: id: {}", id);
+    LOGGER.debug("enter: id: {}", id);
 
     Address address = addressRepository.findOne(id);
     if (address == null) {
       throw new NotExistException("Address not exist for id: " + id);
     }
 
-    LOG.debug("exit: address: {}", address);
+    LOGGER.debug("exit: address: {}", address);
     return address;
   }
 
@@ -60,16 +60,16 @@ public class AddressService {
    * @param customerId customer id
    * @return A set of Address value
    */
-  public Set<Address> getAllAddressByCustomerId(String customerId) {
-    LOG.debug("enter: subjectId: {}", customerId);
+  public List<Address> getAllAddressByCustomerId(String customerId) {
+    LOGGER.debug("enter: subjectId: {}", customerId);
 
     Customer customer = customerService.getById(customerId);
-    Set<Address> addresses = customer.getAddresses();
+    List<Address> addresses = customer.getAddresses();
     if (addresses == null) {
-      addresses = new HashSet<>();
+      addresses = new ArrayList<>();
     }
 
-    LOG.debug("exit: addresses: {}", addresses);
+    LOGGER.debug("exit: addresses: {}", addresses);
     return addresses;
   }
 

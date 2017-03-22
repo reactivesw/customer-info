@@ -17,22 +17,6 @@ The customer will be auto created by the service.
     ]
 }
 ```
-- Sample
-```Json
-{
-	"version":1,
-	"actions":[
-		{
-			"action":"updateCustomerInfo",
-			"customerName": "Umasuo"
-		},
-		{
-			"action":"addAddress",
-			"fullName": "home"
-		}
-	]
-}
-```
 #### Return: CustomerView
 ##### Actions:
 ###### Action: updateCustomerInfo
@@ -54,46 +38,38 @@ Update all info here
 
   String locale;
 ```
-- Sample
-```Java
-{
-	"action":"updateCustomerInfo",
-	"customerName": "Umasuo",
-	"firstName": "wakaka"
-}
-```
+
 
 ###### Action: AddAddress
 - Payload
 ```Java
   
   String fullName;
-
+   
+  //NotNull
   String zip;
 
+  //NotNull
   String phone;
 
+  //NotNull
   String firstLine;
 
   String secondLine;
 
+  //NotNull
   String country;
 
   String state;
 
+  //NotNull
   String city;
 ```
-- Sample
-```Java
-{
-	"action":"addAddress",
-	"fullName": "Wakaka Umasuo",
-	"city": "NewYork"
-}
-```
+
 ###### Action: UpdateAddress
 - Payload
 ```
+  
   String id;
 
   String fullName;
