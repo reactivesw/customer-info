@@ -45,7 +45,7 @@ public class CustomerService {
    */
   public Customer getById(String id) {
     LOG.debug("Enter: id:{}", id);
-    Customer entity = customerRepository.findOne(id);
+    Customer entity = getOrCreateCustomer(id);
     if (entity == null) {
       LOG.warn("customer not exist: id:{}", id);
       throw new NotExistException("customer not exist. id:" + id);
