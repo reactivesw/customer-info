@@ -4,13 +4,15 @@ import io.reactivesw.customer.info.infrastructure.update.UpdateAction;
 import io.reactivesw.customer.info.infrastructure.util.UpdateActionUtils;
 import lombok.Data;
 
-/**
- * Created by umasuo on 17/3/15.
- */
-@Data
-public class DeleteAddress implements UpdateAction {
+import java.io.Serializable;
 
-  private String addressId;
+import javax.validation.constraints.NotNull;
+
+@Data
+public class DeleteAddress implements UpdateAction, Serializable {
+
+  @NotNull
+  private String id;
 
   @Override
   public String getActionName() {

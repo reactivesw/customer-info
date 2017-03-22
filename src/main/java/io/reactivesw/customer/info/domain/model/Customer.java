@@ -7,12 +7,14 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.ZonedDateTime;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -114,8 +116,8 @@ public class Customer {
   /**
    * The addresses have unique IDs in the addresses list.
    */
-  @OneToMany(cascade = CascadeType.ALL)
-  private Set<Address> addresses;
+  @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+  private List<Address> addresses;
 
   /**
    * The address ID in the addresses list.

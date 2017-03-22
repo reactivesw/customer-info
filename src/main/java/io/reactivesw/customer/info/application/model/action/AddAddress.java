@@ -1,10 +1,37 @@
 package io.reactivesw.customer.info.application.model.action;
 
-import io.reactivesw.customer.info.application.model.AddressView;
 import io.reactivesw.customer.info.infrastructure.update.UpdateAction;
 import io.reactivesw.customer.info.infrastructure.util.UpdateActionUtils;
+import lombok.Data;
 
-public class AddAddress extends AddressView implements UpdateAction {
+import java.io.Serializable;
+
+import javax.validation.constraints.NotNull;
+
+@Data
+public class AddAddress implements UpdateAction, Serializable {
+
+  private String fullName;
+
+  @NotNull
+  private String zip;
+
+  @NotNull
+  private String phone;
+
+  @NotNull
+  private String firstLine;
+
+  private String secondLine;
+
+  @NotNull
+  private String country;
+
+  private String state;
+
+  @NotNull
+  protected String city;
+
   @Override
   public String getActionName() {
     return UpdateActionUtils.ADD_ADDRESS;

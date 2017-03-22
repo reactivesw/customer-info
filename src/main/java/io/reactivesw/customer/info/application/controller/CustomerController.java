@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 /**
  * Created by umasuo on 16/12/27.
  */
@@ -57,7 +59,7 @@ public class CustomerController {
    */
   @PutMapping(Router.CUSTOMER_WITH_ID)
   public Customer updateCustomer(@PathVariable String id,
-                                 @RequestBody UpdateRequest updateRequest) {
+                                 @RequestBody @Valid UpdateRequest updateRequest) {
     LOG.info("Enter: id: {}, UpdateRequest: {}", id, updateRequest);
 
     Customer entity = customerService.updateCustomer(id, updateRequest.getVersion(),

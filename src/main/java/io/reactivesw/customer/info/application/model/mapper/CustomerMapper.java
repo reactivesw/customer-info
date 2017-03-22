@@ -8,7 +8,6 @@ import io.reactivesw.customer.info.domain.model.Customer;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by umasuo on 17/1/9.
@@ -34,7 +33,7 @@ public class CustomerMapper {
       model.setDateOfBirth(entity.getDateOfBirth());
 
       List<AddressView> addressList = new ArrayList<>();
-      Set<Address> addressValueSet = entity.getAddresses();
+      List<Address> addressValueSet = entity.getAddresses();
       if (addressValueSet != null) {
         addressValueSet.stream().forEach(
             addressValue -> addressList.add(AddressMapper.modelToView(addressValue))
@@ -45,31 +44,13 @@ public class CustomerMapper {
       model.setDefaultAddressId(entity.getDefaultAddressId());
 
       model.setLocale(entity.getLocale());
+
+      model.setCreatedAt(entity.getCreatedAt());
     }
 
     return model;
   }
 
 
-  /**
-   * copy value.
-   *
-   * @param value CustomerEntity
-   * @return Customer
-   */
-  public static void copyValue(Customer model, CustomerView value) {
-    if (value != null && model != null) {
-      model.setId(value.getId());
-      model.setCustomerName(value.getCustomerName());
-      model.setVersion(value.getVersion());
-      model.setFirstName(value.getFirstName());
-      model.setLastName(value.getLastName());
-      model.setMiddleName(value.getMiddleName());
-      model.setDateOfBirth(value.getDateOfBirth());
-      model.setDefaultAddressId(value.getDefaultAddressId());
-
-      model.setLocale(value.getLocale());
-    }
-  }
 
 }
