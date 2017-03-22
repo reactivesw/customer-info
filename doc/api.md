@@ -12,7 +12,7 @@ lastModifiedAt  | ZonedDateTime     | Pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", 
 firstName       | String            | None              | customer's first name.
 lastName        | String            | None              | customer's last name.
 middleName      | String            | None              | customer's middle name.
-addresses       | List<Address>     | None              | customer's address list, maybe empty.
+addresses       | List<Address>     | None              | customer's address list, maybe empty. all address are sorted by created time.
 defaultAddressId| String            | None              | default address
 locale          | String            | None              | customer's locale, where the customer from.
   
