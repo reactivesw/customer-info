@@ -36,6 +36,8 @@ public class AddressMapper {
 
       address.setCity(entity.getCity());
 
+      address.setCreatedAt(entity.getCreatedAt());
+
     }
     return address;
   }

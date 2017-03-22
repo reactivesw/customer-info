@@ -7,6 +7,7 @@ import io.reactivesw.customer.info.domain.model.Address;
 import io.reactivesw.customer.info.domain.model.Customer;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
@@ -40,11 +41,15 @@ public class CustomerMapper {
             addressValue -> addressList.add(AddressMapper.modelToView(addressValue))
         );
       }
+      // sort with created time.
+      Collections.sort(addressList);
       model.setAddresses(addressList);
 
       model.setDefaultAddressId(entity.getDefaultAddressId());
 
       model.setLocale(entity.getLocale());
+
+      model.setCreatedAt(entity.getCreatedAt());
     }
 
     return model;
