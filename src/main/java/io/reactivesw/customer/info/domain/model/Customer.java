@@ -8,7 +8,6 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.ZonedDateTime;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -66,12 +65,6 @@ public class Customer {
   private Integer version;
 
   /**
-   * password.
-   */
-  @Column(name = "password")
-  private String password;
-
-  /**
    * first name.
    */
   @Column(name = "first_name")
@@ -90,28 +83,10 @@ public class Customer {
   private String middleName;
 
   /**
-   * title.
-   */
-  @Column(name = "title")
-  private String title;
-
-  /**
    * date of birth.
    */
   @Column(name = "date_of_birth")
   private ZonedDateTime dateOfBirth;
-
-  /**
-   * company name.
-   */
-  @Column(name = "company_name")
-  private String companyName;
-
-  /**
-   * vatId.
-   */
-  @Column(name = "vatId")
-  private String vatId;
 
   /**
    * The addresses have unique IDs in the addresses list.
@@ -124,18 +99,6 @@ public class Customer {
    */
   @Column(name = "default_address_id")
   private String defaultAddressId;
-
-  /**
-   * is email verified.
-   */
-  @Column(name = "is_email_verified")
-  private Boolean isEmailVerified;
-
-  /**
-   * customer group id.
-   */
-  @Column(name = "customer_group_id")
-  private String customerGroupId;
 
   /**
    * locale.

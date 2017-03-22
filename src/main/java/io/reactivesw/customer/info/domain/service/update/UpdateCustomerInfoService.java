@@ -64,7 +64,7 @@ public class UpdateCustomerInfoService implements Updater<Customer, UpdateAction
         address -> address.getId().equals(addressId)
     ).findAny().orElse(null);
 
-    if (addressExist == null) {
+    if (addressExist == null && addressId != null) {
       LOGGER.warn("The address set as default not exist. AddressId: {}, customer: {}", addressId,
           customer);
       throw new NotExistException("The address set as default not exist.");
