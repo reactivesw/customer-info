@@ -1,6 +1,7 @@
 package io.reactivesw.customer.info.application.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
@@ -8,10 +9,8 @@ import java.io.Serializable;
 import java.time.ZonedDateTime;
 import java.util.List;
 
-/**
- * Created by umasuo on 17/2/13.
- */
 @Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class CustomerView implements Serializable {
 
   /**
