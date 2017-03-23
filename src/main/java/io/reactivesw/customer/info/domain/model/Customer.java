@@ -2,6 +2,7 @@ package io.reactivesw.customer.info.domain.model;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.hibernate.annotations.OptimisticLock;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;

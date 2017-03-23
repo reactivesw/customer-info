@@ -1,12 +1,14 @@
 package io.reactivesw.customer.info.application.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 import java.io.Serializable;
 import java.time.ZonedDateTime;
 
 @Data
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class AddressView implements Serializable {
 
   private String id;

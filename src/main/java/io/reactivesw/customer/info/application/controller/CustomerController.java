@@ -17,9 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 
-/**
- * Created by umasuo on 16/12/27.
- */
 @RestController
 public class CustomerController {
 
@@ -58,16 +55,18 @@ public class CustomerController {
    * @return updated Customer
    */
   @PutMapping(Router.CUSTOMER_WITH_ID)
-  public Customer updateCustomer(@PathVariable String id,
-                                 @RequestBody @Valid UpdateRequest updateRequest) {
+  public CustomerView updateCustomer(@PathVariable String id,
+                                     @RequestBody @Valid UpdateRequest updateRequest) {
     LOG.info("Enter: id: {}, UpdateRequest: {}", id, updateRequest);
 
     Customer entity = customerService.updateCustomer(id, updateRequest.getVersion(),
         updateRequest.getActions());
 
-    CustomerView customer = CustomerMapper.entityToModel(entity);
+    CustomerView customer = new CustomerView();
+    customer.setId(entity.getId());
+    customer.setVersion(entity.getVersion());
 
     LOG.info("Exit: customer: {}", customer);
-    return null;
+    return customer;
   }
 }

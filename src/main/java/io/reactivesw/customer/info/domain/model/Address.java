@@ -16,9 +16,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- * Created by umasuo on 17/2/13.
- */
 @Entity
 @Data
 @EqualsAndHashCode(callSuper = false)

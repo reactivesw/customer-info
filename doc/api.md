@@ -53,7 +53,13 @@ city            | String            | None              | city
     ]
 }
 ```
-#### Return: CustomerView
+#### Return: 
+```Json
+{
+    "id":"id",
+    "version":version
+}
+```
 ##### Actions:
 ###### Action: updateCustomerInfo
 Update all info here
@@ -101,6 +107,19 @@ Update all info here
   //NotNull
   String city;
 ```
+- Sample
+```Java
+    {
+        "action":"addAddress",
+        "fullName":"HomeAddress",
+        "zip": "this is ziasda",
+        "phone": "this is phone",
+        "country": "this is country",
+        "firstLine":"adasdasda",
+        "city": "this is city",
+        "state":"this is stateasdasdas"
+    }
+```
 
 ###### Action: UpdateAddress
 - Payload
@@ -126,11 +145,17 @@ Update all info here
 ```
 - Sample
 ```Java
-{
-	"action":"updateAddress",
-	"fullName": "Woossa Umasuo",
-	"city": "NewYork"
-}
+    {
+        "action":"updateAddress",
+        "id":"6421b8d0-768b-4417-abd6-b2ab04941c29",
+        "fullName":"HomeAddress",
+        "zip": "this is ziasda",
+        "phone": "this is phone",
+        "country": "this is country",
+        "firstLine":"adasdasda",
+        "city": "this is city",
+        "state":"this is stateasdasdas"
+    }
 ```
 ###### Action: DeleteAddress
 - Payload
@@ -141,8 +166,21 @@ Update all info here
 - Sample
 ```Java
 {
-	"action":"updateAddress",
+	"action":"deleteAddress",
 	"id": "RGADV-GBFGHNSAWEA-GHNJDBSV"
+}
+```
+###### Action: SetDefaultAddress
+- Payload
+```
+  //NotNull
+  String addressId;
+```
+- Sample
+```Java
+{
+	"action":"setDefaultAddress",
+	"addressId": "RGADV-GBFGHNSAWEA-GHNJDBSV"
 }
 ```
 

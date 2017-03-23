@@ -9,4 +9,6 @@ public class UpdateActionUtils {
   public final static String DELETE_ADDRESS = "deleteAddress";
 
   public final static String UPDATE_CUSTOMER_INFO = "updateCustomerInfo";
+
+  public final static String SET_DEFAULT_ADDRESS = "setDefaultAddress";
 }
