@@ -2,8 +2,6 @@ apply plugin: 'docker'
 
 group = "reactivesw"
 
-//build docker image
-//doc: https://github.com/Transmode/gradle-docker
 task buildDocker(type: Docker, dependsOn: [build]) {
   applicationName = jar.baseName
   tagVersion = jar.version
@@ -18,7 +16,6 @@ task buildDocker(type: Docker, dependsOn: [build]) {
 
   runCommand("sh -c 'touch /app.jar'")
 
-  //the entryPoint
   List<String> list = new ArrayList<String>()
   list.add("java")
   list.add("-Djava.security.egd=file:/dev/./urandom")
