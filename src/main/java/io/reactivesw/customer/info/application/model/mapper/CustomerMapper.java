@@ -26,7 +26,7 @@ public final class CustomerMapper {
    * @param entity CustomerEntity
    * @return Customer
    */
-  public static CustomerView entityToModel(Customer entity) {
+  public static CustomerView toView(Customer entity) {
     CustomerView model = null;
     if (entity != null) {
       model = new CustomerView();

@@ -65,26 +65,4 @@ class CustomerServiceTest extends Specification {
         result.getId() == customer.getId()
     }
 
-    def "Test 3.1: add new address"() {
-        when:
-        customerRepository.findOne("customerId") >> customer
-        customerRepository.save(_) >> customer
-        Customer result = customerService.addAddress("customerId", address)
-        then:
-        noExceptionThrown()
-        result.getId() == customer.getId()
-    }
-
-    def "Test 3.1: add new address that the customer do not has any address"() {
-        customer.setAddresses(null)
-        when:
-        customerRepository.findOne("customerId") >> customer
-        customerRepository.save(_) >> customer
-        Customer result = customerService.addAddress("customerId", address)
-        then:
-        noExceptionThrown()
-        result.getId() == customer.getId()
-    }
-
-
 }

@@ -53,13 +53,8 @@ city            | String            | None              | city
     ]
 }
 ```
-#### Return: 
-```Json
-{
-    "id": "id",
-    "version": version
-}
-```
+#### Response: CustomerView 
+
 ##### Actions:
 ###### Action: updateCustomerInfo
 Update all info here
@@ -192,34 +187,6 @@ Update all info here
 
 ---
 
-### Add new address
-#### Path: /{id}
-#### Payload: 
-```Java
-  
-  String fullName;
-   
-  String zip;
-
-  String phone;
-
-  //NotNull
-  String firstLine;
-
-  String secondLine;
-
-  //NotNull
-  String country;
-
-  String state;
-
-  //NotNull
-  String city;
-```
-#### Method: POST
-#### Return CustomerView
-
----
 
 ### Get address by addressId
 #### Path: /addresses/{addressId}
