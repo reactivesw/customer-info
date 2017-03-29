@@ -9,9 +9,17 @@ import java.io.Serializable;
 import java.time.ZonedDateTime;
 import java.util.List;
 
+/**
+ * customer view.
+ */
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class CustomerView implements Serializable {
+
+  /**
+   * auto generated serial version id.
+   */
+  private static final long serialVersionUID = -5578159442550944417L;
 
   /**
    * customer id, use uuid.
@@ -45,15 +53,27 @@ public class CustomerView implements Serializable {
   @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", timezone = "UTC")
   private ZonedDateTime lastModifiedAt;
 
+  /**
+   * first name.
+   */
   @JsonProperty
   private String firstName;
 
+  /**
+   * last name.
+   */
   @JsonProperty
   private String lastName;
 
+  /**
+   * middle name.
+   */
   @JsonProperty
   private String middleName;
 
+  /**
+   * date of birth.
+   */
   @JsonProperty
   private ZonedDateTime dateOfBirth;
 
@@ -69,6 +89,9 @@ public class CustomerView implements Serializable {
   @JsonProperty
   private String defaultAddressId;
 
+  /**
+   * locale.
+   */
   @JsonProperty
   private String locale;
 

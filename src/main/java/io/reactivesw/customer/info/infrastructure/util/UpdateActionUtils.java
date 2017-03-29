@@ -1,14 +1,32 @@
 package io.reactivesw.customer.info.infrastructure.util;
 
+/**
+ * update action util.
+ */
 public class UpdateActionUtils {
 
-  public final static String ADD_ADDRESS = "addAddress";
+  /**
+   * add address action name.
+   */
+  public static final String ADD_ADDRESS = "addAddress";
 
-  public final static String UPDATE_ADDRESS = "updateAddress";
+  /**
+   * update address action name.
+   */
+  public static final String UPDATE_ADDRESS = "updateAddress";
 
-  public final static String DELETE_ADDRESS = "deleteAddress";
+  /**
+   * delete address action name.
+   */
+  public static final String DELETE_ADDRESS = "deleteAddress";
 
-  public final static String UPDATE_CUSTOMER_INFO = "updateCustomerInfo";
+  /**
+   * update customer info action name.
+   */
+  public static final String UPDATE_CUSTOMER_INFO = "updateCustomerInfo";
 
-  public final static String SET_DEFAULT_ADDRESS = "setDefaultAddress";
+  /**
+   * set default address action name.
+   */
+  public static final String SET_DEFAULT_ADDRESS = "setDefaultAddress";
 }

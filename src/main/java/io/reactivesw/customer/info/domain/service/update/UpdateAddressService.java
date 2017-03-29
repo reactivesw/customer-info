@@ -11,26 +11,34 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import java.time.ZonedDateTime;
 import java.util.List;
 
+/**
+ * update address service.
+ */
 @Service(value = UpdateActionUtils.UPDATE_ADDRESS)
 public class UpdateAddressService implements Updater<Customer, UpdateAction> {
 
   /**
    * logger.
    */
-  private final static Logger LOGGER = LoggerFactory.getLogger(UpdateAddressService.class);
+  private static final Logger LOG = LoggerFactory.getLogger(UpdateAddressService.class);
 
+  /**
+   * handler.
+   *
+   * @param customer     customer entity
+   * @param updateAction update action
+   */
   @Override
   public void handle(Customer customer, UpdateAction updateAction) {
-    LOGGER.debug("Enter: customer: {}, action: {}", customer, updateAction);
+    LOG.debug("Enter: customer: {}, action: {}", customer, updateAction);
     UpdateAddress action = (UpdateAddress) updateAction;
 
     List<Address> addresses = customer.getAddresses();
 
     if (addresses == null || addresses.isEmpty()) {
-      LOGGER.debug("Address not exist. address: {}, customer: {}", updateAction, customer);
+      LOG.debug("Address not exist. address: {}, customer: {}", updateAction, customer);
       throw new NotExistException("Address not exist. address: " + action.toString());
     }
 
@@ -39,13 +47,13 @@ public class UpdateAddressService implements Updater<Customer, UpdateAction> {
     ).findAny().orElse(null);
 
     if (addressInDb == null) {
-      LOGGER.debug("Address not exist. address: {}, customer: {}", updateAction, customer);
+      LOG.debug("Address not exist. address: {}, customer: {}", updateAction, customer);
       throw new NotExistException("Address not exist. address: " + action.toString());
     }
 
     //copy the value to the address stored.
     copyValue(addressInDb, action);
-    LOGGER.debug("Exit: customer: {}, action: {}", customer, updateAction);
+    LOG.debug("Exit: customer: {}, action: {}", customer, updateAction);
   }
 
   /**

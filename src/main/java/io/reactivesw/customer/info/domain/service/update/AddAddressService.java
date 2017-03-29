@@ -13,14 +13,23 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * add address service.
+ */
 @Service(value = UpdateActionUtils.ADD_ADDRESS)
 public class AddAddressService implements Updater<Customer, UpdateAction> {
 
   /**
    * logger.
    */
-  private final static Logger LOGGER = LoggerFactory.getLogger(AddAddressService.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(AddAddressService.class);
 
+  /**
+   * handler.
+   *
+   * @param customer     customer entity
+   * @param updateAction action
+   */
   @Override
   public void handle(Customer customer, UpdateAction updateAction) {
     LOGGER.debug("Enter: customer: {}, action: {}", customer, updateAction);

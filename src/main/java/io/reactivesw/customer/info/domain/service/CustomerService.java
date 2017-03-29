@@ -1,7 +1,6 @@
 package io.reactivesw.customer.info.domain.service;
 
 import io.reactivesw.customer.info.domain.model.Customer;
-import io.reactivesw.customer.info.infrastructure.repository.AddressRepository;
 import io.reactivesw.customer.info.infrastructure.repository.CustomerRepository;
 import io.reactivesw.customer.info.infrastructure.update.UpdateAction;
 import io.reactivesw.customer.info.infrastructure.update.UpdaterService;
@@ -15,7 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * Created by umasuo on 16/12/26.
+ * customer service.
  */
 @Service
 public class CustomerService {
@@ -23,7 +22,7 @@ public class CustomerService {
   /**
    * logger.
    */
-  private final static Logger LOG = LoggerFactory.getLogger(CustomerService.class);
+  private static final Logger LOG = LoggerFactory.getLogger(CustomerService.class);
 
   /**
    * customer repository.

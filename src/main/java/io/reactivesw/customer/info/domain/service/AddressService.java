@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by umasuo on 17/2/13.
+ * add address service.
  */
 @Service
 public class AddressService {
@@ -21,7 +21,7 @@ public class AddressService {
   /**
    * logger.
    */
-  private final static Logger LOGGER = LoggerFactory.getLogger(AddressService.class);
+  private static final Logger LOG = LoggerFactory.getLogger(AddressService.class);
 
   /**
    * address repository.
@@ -42,14 +42,14 @@ public class AddressService {
    * @return AddressValue
    */
   public Address getById(String id) {
-    LOGGER.debug("enter: id: {}", id);
+    LOG.debug("enter: id: {}", id);
 
     Address address = addressRepository.findOne(id);
     if (address == null) {
       throw new NotExistException("Address not exist for id: " + id);
     }
 
-    LOGGER.debug("exit: address: {}", address);
+    LOG.debug("exit: address: {}", address);
     return address;
   }
 
@@ -61,7 +61,7 @@ public class AddressService {
    * @return A set of Address value
    */
   public List<Address> getAllAddressByCustomerId(String customerId) {
-    LOGGER.debug("enter: subjectId: {}", customerId);
+    LOG.debug("enter: subjectId: {}", customerId);
 
     Customer customer = customerService.getById(customerId);
     List<Address> addresses = customer.getAddresses();
@@ -69,7 +69,7 @@ public class AddressService {
       addresses = new ArrayList<>();
     }
 
-    LOGGER.debug("exit: addresses: {}", addresses);
+    LOG.debug("exit: addresses: {}", addresses);
     return addresses;
   }
 

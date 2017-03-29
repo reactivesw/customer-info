@@ -8,30 +8,67 @@ import java.io.Serializable;
 
 import javax.validation.constraints.NotNull;
 
+/**
+ * add address action.
+ */
 @Data
 public class AddAddress implements UpdateAction, Serializable {
 
+  /**
+   * auto generated serial version id.
+   */
+  private static final long serialVersionUID = 1597898734365622271L;
+
+  /**
+   * full name.
+   */
   private String fullName;
 
+  /**
+   * zip.
+   */
   @NotNull
   private String zip;
 
+  /**
+   * phone.
+   */
   @NotNull
   private String phone;
 
+  /**
+   * first line.
+   */
   @NotNull
   private String firstLine;
 
+  /**
+   * second line.
+   */
   private String secondLine;
 
+  /**
+   * country.
+   */
   @NotNull
   private String country;
 
+  /**
+   * state.
+   */
   private String state;
 
+  /**
+   * city.
+   */
   @NotNull
   protected String city;
 
+  /**
+   * get action name.
+   *
+   * @return String
+   */
   @Override
   public String getActionName() {
     return UpdateActionUtils.ADD_ADDRESS;

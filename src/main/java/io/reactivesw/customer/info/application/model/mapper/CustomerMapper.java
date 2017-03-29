@@ -10,9 +10,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by umasuo on 17/1/9.
+ * customer mapper.
  */
-public class CustomerMapper {
+public final class CustomerMapper {
+
+  /**
+   * default private constructor.
+   */
+  private CustomerMapper() {
+  }
 
   /**
    * entity to model.
@@ -50,7 +56,6 @@ public class CustomerMapper {
 
     return model;
   }
-
 
 
 }

@@ -92,13 +92,13 @@ public final class Router {
   }
 
   /**
-   * path builder:get customer with google token
+   * path builder:get customer with google token.
    *
-   * @param gToken google token
+   * @param googleToken google token
    * @return String customer with google
    */
-  public static String getCustomerWithGoogle(String gToken) {
-    return CUSTOMER_ROOT + "?gToken=" + gToken;
+  public static String getCustomerWithGoogle(String googleToken) {
+    return CUSTOMER_ROOT + "?gToken=" + googleToken;
   }
 
 }

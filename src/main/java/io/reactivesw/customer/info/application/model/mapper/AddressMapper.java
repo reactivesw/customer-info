@@ -4,9 +4,15 @@ import io.reactivesw.customer.info.application.model.AddressView;
 import io.reactivesw.customer.info.domain.model.Address;
 
 /**
- * Created by umasuo on 17/1/5.
+ * address mapper.
  */
-public class AddressMapper {
+public final class AddressMapper {
+
+  /**
+   * default private constructor.
+   */
+  private AddressMapper() {
+  }
 
   /**
    * entity to model.
