@@ -3,6 +3,10 @@ apply plugin: 'groovy'
 dependencies {
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile('org.spockframework:spock-spring')
+    //spock core
+    testCompile('org.spockframework:spock-core:1.0-groovy-2.4')
+    // for mock non interface
+    testCompile('cglib:cglib-nodep:3.2.5')
 }
 
 apply plugin: 'com.palantir.jacoco-coverage'
@@ -10,6 +14,7 @@ apply plugin: 'com.palantir.jacoco-coverage'
 jacocoCoverage { // Enforce minimum code coverage of 80% for every Java file.
     // Minimum 'branch' coverage of 80% for all files.
     fileThreshold 0.0, "Application.java"
+    fileThreshold 0.0, "Router.java"
     fileThreshold 0.8, BRANCH
     fileThreshold 0.8, METHOD
 }
@@ -19,7 +24,15 @@ jacocoTestReport {
     afterEvaluate {
         classDirectories = files(classDirectories.files.collect {
             fileTree(dir: it, exclude: [
-//                    '**/entity/**',
+                    '**/entity/**',
+                    '**/model/**',
+                    '**/configuration/**',
+                    '**/enums/**',
+                    '**/exception/**',
+                    '**/repository/**',
+                    '**/update/**',
+                    '**/controller/**',
+                    '**/util/**',
             ])
         })
     }
