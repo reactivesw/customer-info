@@ -56,8 +56,8 @@ city            | String            | None              | city
 #### Return: 
 ```Json
 {
-    "id":"id",
-    "version":version
+    "id": "id",
+    "version": version
 }
 ```
 ##### Actions:
@@ -88,10 +88,8 @@ Update all info here
   
   String fullName;
    
-  //NotNull
   String zip;
 
-  //NotNull
   String phone;
 
   //NotNull
@@ -190,6 +188,35 @@ Update all info here
 #### Path: /{id}
 #### Payload: NONE
 #### Method: GET
+#### Return CustomerView
+
+---
+
+### Add new address
+#### Path: /{id}
+#### Payload: 
+```Java
+  
+  String fullName;
+   
+  String zip;
+
+  String phone;
+
+  //NotNull
+  String firstLine;
+
+  String secondLine;
+
+  //NotNull
+  String country;
+
+  String state;
+
+  //NotNull
+  String city;
+```
+#### Method: POST
 #### Return CustomerView
 
 ---
