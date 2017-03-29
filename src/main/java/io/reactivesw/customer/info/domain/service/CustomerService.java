@@ -1,5 +1,6 @@
 package io.reactivesw.customer.info.domain.service;
 
+import io.reactivesw.customer.info.domain.model.Address;
 import io.reactivesw.customer.info.domain.model.Customer;
 import io.reactivesw.customer.info.infrastructure.repository.CustomerRepository;
 import io.reactivesw.customer.info.infrastructure.update.UpdateAction;
@@ -11,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -53,6 +55,30 @@ public class CustomerService {
     return entity;
   }
 
+  /**
+   * add address.
+   *
+   * @param customerId String
+   * @param address    Address
+   * @return customer
+   */
+  public Customer addAddress(String customerId, Address address) {
+    LOG.debug("enter. id:{}, address: {}.", customerId, address);
+
+    Customer customer = getById(customerId);
+
+    List<Address> addresses = customer.getAddresses();
+    if (addresses == null) {
+      addresses = new ArrayList<>();
+      customer.setAddresses(addresses);
+    }
+    addresses.add(address);
+
+    Customer result = customerRepository.save(customer);
+
+    LOG.debug("enter. id:{}, customer: {}.", customerId, result);
+    return result;
+  }
 
   /**
    * update customer with with update actions.
