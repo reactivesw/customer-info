@@ -5,6 +5,9 @@ import io.reactivesw.model.Updater;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
+/**
+ * updater service.
+ */
 @Service
 public class UpdaterService implements Updater<Customer, UpdateAction> {
 
@@ -16,7 +19,7 @@ public class UpdaterService implements Updater<Customer, UpdateAction> {
   /**
    * constructor.
    *
-   * @param context
+   * @param context ApplicationContext
    */
   public UpdaterService(ApplicationContext context) {
     this.context = context;

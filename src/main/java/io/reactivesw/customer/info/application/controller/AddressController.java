@@ -10,22 +10,21 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 /**
- * Created by umasuo on 17/3/17.
+ * address controller.
  */
 @RestController
 public class AddressController {
 
   /**
-   * LOGGER.
+   * LOG.
    */
-  private final static Logger LOGGER = LoggerFactory.getLogger(AddressController.class);
+  private static final Logger LOG = LoggerFactory.getLogger(AddressController.class);
 
   /**
    * address service.
@@ -33,15 +32,21 @@ public class AddressController {
   @Autowired
   public transient AddressService addressService;
 
+  /**
+   * get by id.
+   *
+   * @param addressId String
+   * @return address view.
+   */
   @GetMapping(value = Router.ADDRESS_WITH_ID)
   public AddressView getById(@PathVariable @Valid @NotNull String addressId) {
-    LOGGER.info("Enter: id: {}", addressId);
+    LOG.info("enter. id: {}", addressId);
 
     Address address = addressService.getById(addressId);
 
     AddressView addressView = AddressMapper.modelToView(address);
 
-    LOGGER.info("Exit: addressView: {}", addressView);
+    LOG.info("exit. addressView: {}", addressView);
     return addressView;
   }
 

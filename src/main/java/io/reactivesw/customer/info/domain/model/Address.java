@@ -16,6 +16,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * address entity.
+ */
 @Entity
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -23,6 +26,9 @@ import javax.persistence.Table;
 @EntityListeners(AuditingEntityListener.class)
 public class Address {
 
+  /**
+   * uuid.
+   */
   @Id
   @GeneratedValue(generator = "uuid")
   @GenericGenerator(name = "uuid", strategy = "uuid2")
@@ -73,12 +79,21 @@ public class Address {
   @Column
   private String secondLine;
 
+  /**
+   * country.
+   */
   @Column
   private String country;
 
+  /**
+   * state.
+   */
   @Column
   private String state;
 
+  /**
+   * city.
+   */
   @Column
   protected String city;
 }

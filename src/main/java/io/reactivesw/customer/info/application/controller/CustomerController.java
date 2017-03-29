@@ -17,13 +17,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 
+/**
+ * customer controller.
+ */
 @RestController
 public class CustomerController {
 
   /**
    * logger.
    */
-  private final static Logger LOG = LoggerFactory.getLogger(CustomerController.class);
+  private static final Logger LOG = LoggerFactory.getLogger(CustomerController.class);
 
   /**
    * customer service.
@@ -39,11 +42,11 @@ public class CustomerController {
    */
   @GetMapping(Router.CUSTOMER_WITH_ID)
   public CustomerView getById(@PathVariable String id) {
-    LOG.debug("Enter: id:{}", id);
+    LOG.debug("enter. id:{}", id);
 
     Customer customer = customerService.getById(id);
 
-    LOG.debug("Exit: customer: {}", id, customer);
+    LOG.debug("exit. customer: {}", customer);
     return CustomerMapper.entityToModel(customer);
   }
 
@@ -57,7 +60,7 @@ public class CustomerController {
   @PutMapping(Router.CUSTOMER_WITH_ID)
   public CustomerView updateCustomer(@PathVariable String id,
                                      @RequestBody @Valid UpdateRequest updateRequest) {
-    LOG.info("Enter: id: {}, UpdateRequest: {}", id, updateRequest);
+    LOG.info("enter. id: {}, UpdateRequest: {}", id, updateRequest);
 
     Customer entity = customerService.updateCustomer(id, updateRequest.getVersion(),
         updateRequest.getActions());
@@ -66,7 +69,7 @@ public class CustomerController {
     customer.setId(entity.getId());
     customer.setVersion(entity.getVersion());
 
-    LOG.info("Exit: customer: {}", customer);
+    LOG.info("exit. customer: {}", customer);
     return customer;
   }
 }

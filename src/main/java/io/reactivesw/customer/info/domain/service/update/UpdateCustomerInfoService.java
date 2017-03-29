@@ -13,22 +13,31 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * update customer info service.
+ */
 @Service(value = UpdateActionUtils.UPDATE_CUSTOMER_INFO)
 public class UpdateCustomerInfoService implements Updater<Customer, UpdateAction> {
 
   /**
    * logger.
    */
-  private final static Logger LOGGER = LoggerFactory.getLogger(UpdateCustomerInfoService.class);
+  private static final Logger LOG = LoggerFactory.getLogger(UpdateCustomerInfoService.class);
 
+  /**
+   * handler.
+   *
+   * @param customer     customer entity
+   * @param updateAction update action
+   */
   @Override
   public void handle(Customer customer, UpdateAction updateAction) {
-    LOGGER.debug("Enter: customer: {}, Action: {}", customer, updateAction);
+    LOG.debug("Enter: customer: {}, Action: {}", customer, updateAction);
 
     UpdateCustomerInfo customerView = (UpdateCustomerInfo) updateAction;
     copyValue(customer, customerView);
 
-    LOGGER.debug("Exit: customer: {}", customer);
+    LOG.debug("Exit: customer: {}", customer);
   }
 
 
@@ -54,8 +63,8 @@ public class UpdateCustomerInfoService implements Updater<Customer, UpdateAction
   /**
    * set the default address, before set, check if the address exist.
    *
-   * @param customer
-   * @param addressId
+   * @param customer  customer entity
+   * @param addressId address id
    */
   private void setDefaultAddress(Customer customer, String addressId) {
     List<Address> addresses = customer.getAddresses();
@@ -65,7 +74,7 @@ public class UpdateCustomerInfoService implements Updater<Customer, UpdateAction
     ).findAny().orElse(null);
 
     if (addressExist == null && addressId != null) {
-      LOGGER.warn("The address set as default not exist. AddressId: {}, customer: {}", addressId,
+      LOG.warn("The address set as default not exist. AddressId: {}, customer: {}", addressId,
           customer);
       throw new NotExistException("The address set as default not exist.");
     }

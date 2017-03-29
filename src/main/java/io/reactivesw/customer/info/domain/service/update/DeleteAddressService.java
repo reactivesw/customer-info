@@ -13,17 +13,26 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * delete address service.
+ */
 @Service(value = UpdateActionUtils.DELETE_ADDRESS)
 public class DeleteAddressService implements Updater<Customer, UpdateAction> {
 
   /**
    * logger.
    */
-  private final static Logger LOGGER = LoggerFactory.getLogger(DeleteAddressService.class);
+  private static final Logger LOG = LoggerFactory.getLogger(DeleteAddressService.class);
 
+  /**
+   * handler.
+   *
+   * @param customer     customer entity
+   * @param updateAction update action
+   */
   @Override
   public void handle(Customer customer, UpdateAction updateAction) {
-    LOGGER.debug("Enter: customer: {}, action: {}", customer, updateAction);
+    LOG.debug("Enter: customer: {}, action: {}", customer, updateAction);
 
     DeleteAddress deleteAddress = (DeleteAddress) updateAction;
     String addressId = deleteAddress.getId();
@@ -34,11 +43,11 @@ public class DeleteAddressService implements Updater<Customer, UpdateAction> {
     ).findFirst().orElse(null);
 
     if (delAddress == null) {
-      LOGGER.debug("Address not exist. addressId: {}, customer: {}", addressId, customer);
+      LOG.debug("Address not exist. addressId: {}, customer: {}", addressId, customer);
       throw new NotExistException("Address not exist. addressId: " + addressId);
     }
     addresses.remove(delAddress);
 
-    LOGGER.debug("Exit: customer: {}, action: {}", customer, updateAction);
+    LOG.debug("Exit: customer: {}, action: {}", customer, updateAction);
   }
 }
