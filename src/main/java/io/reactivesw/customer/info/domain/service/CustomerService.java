@@ -53,7 +53,6 @@ public class CustomerService {
     return entity;
   }
 
-
   /**
    * update customer with with update actions.
    *

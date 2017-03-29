@@ -53,13 +53,8 @@ city            | String            | None              | city
     ]
 }
 ```
-#### Return: 
-```Json
-{
-    "id":"id",
-    "version":version
-}
-```
+#### Response: CustomerView 
+
 ##### Actions:
 ###### Action: updateCustomerInfo
 Update all info here
@@ -88,10 +83,8 @@ Update all info here
   
   String fullName;
    
-  //NotNull
   String zip;
 
-  //NotNull
   String phone;
 
   //NotNull
@@ -193,6 +186,7 @@ Update all info here
 #### Return CustomerView
 
 ---
+
 
 ### Get address by addressId
 #### Path: /addresses/{addressId}

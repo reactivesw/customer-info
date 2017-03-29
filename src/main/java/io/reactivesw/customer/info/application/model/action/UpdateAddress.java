@@ -33,13 +33,11 @@ public class UpdateAddress implements UpdateAction, Serializable {
   /**
    * zi code.
    */
-  @NotNull
   private String zip;
 
   /**
    * phone.
    */
-  @NotNull
   private String phone;
 
   /**

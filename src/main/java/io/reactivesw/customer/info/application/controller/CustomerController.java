@@ -47,7 +47,7 @@ public class CustomerController {
     Customer customer = customerService.getById(id);
 
     LOG.debug("exit. customer: {}", customer);
-    return CustomerMapper.entityToModel(customer);
+    return CustomerMapper.toView(customer);
   }
 
   /**
@@ -65,9 +65,7 @@ public class CustomerController {
     Customer entity = customerService.updateCustomer(id, updateRequest.getVersion(),
         updateRequest.getActions());
 
-    CustomerView customer = new CustomerView();
-    customer.setId(entity.getId());
-    customer.setVersion(entity.getVersion());
+    CustomerView customer = CustomerMapper.toView(entity);
 
     LOG.info("exit. customer: {}", customer);
     return customer;

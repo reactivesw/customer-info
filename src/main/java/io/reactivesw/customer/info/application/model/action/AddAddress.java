@@ -27,13 +27,11 @@ public class AddAddress implements UpdateAction, Serializable {
   /**
    * zip.
    */
-  @NotNull
   private String zip;
 
   /**
    * phone.
    */
-  @NotNull
   private String phone;
 
   /**

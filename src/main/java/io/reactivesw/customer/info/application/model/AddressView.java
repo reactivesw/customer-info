@@ -7,6 +7,8 @@ import lombok.Data;
 import java.io.Serializable;
 import java.time.ZonedDateTime;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * address view.
  */
@@ -54,6 +56,7 @@ public class AddressView implements Serializable {
   /**
    * fist line.
    */
+  @NotNull
   private String firstLine;
 
   /**
@@ -64,6 +67,7 @@ public class AddressView implements Serializable {
   /**
    * country.
    */
+  @NotNull
   private String country;
 
   /**
@@ -74,6 +78,7 @@ public class AddressView implements Serializable {
   /**
    * city.
    */
+  @NotNull
   protected String city;
 
 }
