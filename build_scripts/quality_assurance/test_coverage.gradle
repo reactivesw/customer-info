@@ -33,6 +33,7 @@ jacocoTestReport {
                     '**/update/**',
                     '**/controller/**',
                     '**/util/**',
+                    '**/auth/**',
             ])
         })
     }
