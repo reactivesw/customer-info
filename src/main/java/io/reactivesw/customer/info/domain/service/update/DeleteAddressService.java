@@ -32,7 +32,7 @@ public class DeleteAddressService implements Updater<Customer, UpdateAction> {
    */
   @Override
   public void handle(Customer customer, UpdateAction updateAction) {
-    LOG.debug("Enter: customer: {}, action: {}", customer, updateAction);
+    LOG.debug("enter. customer: {}, action: {}", customer, updateAction);
 
     DeleteAddress deleteAddress = (DeleteAddress) updateAction;
     String addressId = deleteAddress.getId();
@@ -48,6 +48,10 @@ public class DeleteAddressService implements Updater<Customer, UpdateAction> {
     }
     addresses.remove(delAddress);
 
-    LOG.debug("Exit: customer: {}, action: {}", customer, updateAction);
+    if (delAddress.getId().equals(customer.getDefaultAddressId())) {
+      customer.setDefaultAddressId(null);
+    }
+
+    LOG.debug("exit. customer: {}, action: {}", customer, updateAction);
   }
 }

@@ -42,14 +42,14 @@ public class AddressService {
    * @return AddressValue
    */
   public Address getById(String id) {
-    LOG.debug("enter: id: {}", id);
+    LOG.debug("enter. id: {}.", id);
 
     Address address = addressRepository.findOne(id);
     if (address == null) {
       throw new NotExistException("Address not exist for id: " + id);
     }
 
-    LOG.debug("exit: address: {}", address);
+    LOG.debug("exit. address: {}.", address);
     return address;
   }
 
@@ -61,7 +61,7 @@ public class AddressService {
    * @return A set of Address value
    */
   public List<Address> getAllAddressByCustomerId(String customerId) {
-    LOG.debug("enter: subjectId: {}", customerId);
+    LOG.debug("enter. subjectId: {}.", customerId);
 
     Customer customer = customerService.getById(customerId);
     List<Address> addresses = customer.getAddresses();
@@ -69,7 +69,7 @@ public class AddressService {
       addresses = new ArrayList<>();
     }
 
-    LOG.debug("exit: addresses: {}", addresses);
+    LOG.debug("exit. addresses: {}.", addresses);
     return addresses;
   }
 

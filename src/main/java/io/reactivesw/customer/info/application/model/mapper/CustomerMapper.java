@@ -5,8 +5,10 @@ import io.reactivesw.customer.info.application.model.AddressView;
 import io.reactivesw.customer.info.application.model.CustomerView;
 import io.reactivesw.customer.info.domain.model.Address;
 import io.reactivesw.customer.info.domain.model.Customer;
+import io.reactivesw.customer.info.infrastructure.util.CreateTimeComparator;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -39,12 +41,14 @@ public final class CustomerMapper {
       model.setDateOfBirth(entity.getDateOfBirth());
 
       List<AddressView> addressList = new ArrayList<>();
-      List<Address> addressValueSet = entity.getAddresses();
-      if (addressValueSet != null) {
-        addressValueSet.stream().forEach(
-            addressValue -> addressList.add(AddressMapper.modelToView(addressValue))
+      List<Address> addressValueList = entity.getAddresses();
+      if (addressValueList != null) {
+        addressValueList.stream().forEach(
+            addressValue -> addressList.add(AddressMapper.toView(addressValue))
         );
       }
+      // sort the address with create time.
+      Collections.sort(addressList, new CreateTimeComparator());
       model.setAddresses(addressList);
 
       model.setDefaultAddressId(entity.getDefaultAddressId());
