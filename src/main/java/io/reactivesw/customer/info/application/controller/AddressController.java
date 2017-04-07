@@ -44,7 +44,7 @@ public class AddressController {
 
     Address address = addressService.getById(addressId);
 
-    AddressView addressView = AddressMapper.modelToView(address);
+    AddressView addressView = AddressMapper.toView(address);
 
     LOG.info("exit. addressView: {}", addressView);
     return addressView;

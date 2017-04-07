@@ -20,7 +20,7 @@ public final class AddressMapper {
    * @param entity AddressValue
    * @return Address
    */
-  public static AddressView modelToView(Address entity) {
+  public static AddressView toView(Address entity) {
     AddressView address = null;
     if (entity != null) {
       address = new AddressView();
@@ -56,7 +56,7 @@ public final class AddressMapper {
    * @param view Address
    * @return AddressValue
    */
-  public static Address viewToModel(AddressView view) {
+  public static Address toEntity(AddressView view) {
     Address address = null;
     if (view != null) {
       address = new Address();
