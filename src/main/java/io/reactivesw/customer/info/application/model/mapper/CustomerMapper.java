@@ -12,18 +12,24 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * customer mapper.
+ * Customer mapper.
  */
 public final class CustomerMapper {
 
+
   /**
-   * default private constructor.
+   * Create time comparator.
+   */
+  private static CreateTimeComparator comparator = new CreateTimeComparator();
+
+  /**
+   * Default private constructor.
    */
   private CustomerMapper() {
   }
 
   /**
-   * entity to model.
+   * Entity to model.
    *
    * @param entity CustomerEntity
    * @return Customer
@@ -48,7 +54,7 @@ public final class CustomerMapper {
         );
       }
       // sort the address with create time.
-      Collections.sort(addressList, new CreateTimeComparator());
+      Collections.sort(addressList, comparator);
       model.setAddresses(addressList);
 
       model.setDefaultAddressId(entity.getDefaultAddressId());

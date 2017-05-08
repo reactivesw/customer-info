@@ -46,8 +46,9 @@ public class CustomerController {
 
     Customer customer = customerService.getById(id);
 
-    LOG.debug("exit. customer: {}.", customer);
-    return CustomerMapper.toView(customer);
+    CustomerView result = CustomerMapper.toView(customer);
+    LOG.debug("exit. customer: {}.", result);
+    return result;
   }
 
   /**
