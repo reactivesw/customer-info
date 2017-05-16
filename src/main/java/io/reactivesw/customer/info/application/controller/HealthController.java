@@ -2,6 +2,7 @@ package io.reactivesw.customer.info.application.controller;
 
 import io.reactivesw.customer.info.infrastructure.Router;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
  * health check api.
  */
 @RestController
+@CrossOrigin
 public class HealthController {
 
   /**
